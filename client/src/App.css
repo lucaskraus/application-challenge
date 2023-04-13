@@ -1,0 +1,7 @@
+.App {
+  background-color: #9370DB;
+  text-align: center;
+  display: grid;
+  width: 100vw;
+  height: 100vh;
+}
