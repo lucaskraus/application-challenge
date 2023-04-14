@@ -1,5 +1,5 @@
 import './Components.scss';
-
+import Menu from './Menu.js';
 const Header = () => {
 
     //Redirect functions to work with button clicks.
