@@ -16,6 +16,32 @@ app.get('/users', async (req, res) => {
 	}
 });
 
+app.get('/api/users/:username/details', async (req, res) => {
+	const username = req.params.username;
+
+	try {
+		const response = await axios.get(`https://api.github.com/users/${username}`);
+		const userData = response.data;
+		res.send(userData);
+
+	} catch (err){
+		console.log(err);
+	}
+});
+
+app.get('api/users/:username/repos', async (req, res) => {
+	const username = req.username.params;
+
+	try{
+		const response = await axios.get(`https://api.github.com/users/${username}/repos`);
+		const userData = response.data;
+		res.send(userData);
+	} catch (err) {
+		console.log(err);
+	}
+
+});
+
 app.listen(3001, () => {
 	console.log("Server running (3001)...");
 });

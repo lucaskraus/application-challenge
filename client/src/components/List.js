@@ -4,12 +4,15 @@ import {useState, useEffect} from 'react';
 import axios from 'axios';
 
 const List = () => {
-
+    
+    //State to update 'users' with data received from API.
     const [users, setUsers] = useState([]);
+    //State used to show properly users in each page.
     const [currentPage, setCurrentPage] = useState(1);
-    const [itemsPerPage, setItemsPerPage] = useState(10);
-    const [totalItems, setTotalItems] = useState(0);
+    //Max page items.
+    const itemsPerPage = 10;
 
+    //Axios get '/users' from server. This server URL sends the users object data from Github.
     useEffect(() => {
         async function getUsers() {
         try {
@@ -22,10 +25,6 @@ const List = () => {
     }
     getUsers();
   }, []);
-
-  const indexOfLastItem = currentPage * itemsPerPage;
-  const indexOfFirstItem = indexOfLastItem - itemsPerPage;
-  const currentItems = users.slice(indexOfFirstItem, indexOfLastItem);
 
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
   const firstItemIndex = (currentPage - 1) * itemsPerPage;
