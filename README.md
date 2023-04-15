@@ -15,10 +15,7 @@ Lists Github users with their account information.
 
 **(...)/api/users/username/details**
 
-''username'' must be a valid Github user. Example:
-diego-shawandpartners
-lucaskraus
-The React application will assemble a card with the information coming from the API.
+''username'' must be a valid Github user. Example: 'diego-shawandpartners' or 'lucaskraus'. The React application will assemble a card with the information coming from the API.
 
 
 **(...)/api/users/username/repos**
