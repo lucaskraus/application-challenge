@@ -3,7 +3,7 @@
  
 The application is divided into two folders: client and server. For application routing, the ''react-router-dom'' library was used. The application is based on the SPA concept.
 
-The client folder should receive the command "npm start react-app'' and the server folder, ''npm start''. Both should run simultaneously.
+The ''client'' folder should receive the command "npm start react-app'' and the ''server'' folder, ''npm start''. Both should run simultaneously.
 
 The server will process the requests, receive the data from the API and the React application will assemble and display them correctly.
 
