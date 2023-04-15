@@ -10,7 +10,7 @@ const router = createBrowserRouter([{
   element: <App />,
   children: [
   {
-    path:'/list',
+    path:'/api/users',
     element: <List />
   }
 ]
