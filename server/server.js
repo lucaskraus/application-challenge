@@ -29,8 +29,8 @@ app.get('/api/users/:username/details', async (req, res) => {
 	}
 });
 
-app.get('api/users/:username/repos', async (req, res) => {
-	const username = req.username.params;
+app.get('/api/users/:username/repos', async (req, res) => {
+	const username = req.params.username;
 
 	try{
 		const response = await axios.get(`https://api.github.com/users/${username}/repos`);

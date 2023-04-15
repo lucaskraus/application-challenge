@@ -1,6 +1,7 @@
 import {Outlet, useParams} from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import axios from 'axios';
+import './Components.scss';
 
 const User = () => {
     const [userDetails, setUserDetails] = useState([]);
@@ -21,13 +22,13 @@ const User = () => {
     getDetails();
   }, [username]);
 
-    //Build a modern card with received data from API. 
+    //Build a card with data received from API. 
     return(
         <div className="userCard">
             <img src={userDetails.avatar_url} alt="User Icon"/>
-            <p>Name: {userDetails.name}</p>
+            <h2>Name: {userDetails.name}</h2>
             <p>Username: {userDetails.login}</p>
-            <p>Account created at: {userDetails.created_at}</p>
+            <p>Account created at: {new Date(userDetails.created_at).getFullYear()}-{new Date(userDetails.created_at).getMonth()+1}-{new Date(userDetails.created_at).getDate()}</p>
             <a href={userDetails.html_url}>{userDetails.html_url}</a>
         <Outlet />
         </div>
