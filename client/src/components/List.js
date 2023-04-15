@@ -25,7 +25,8 @@ const List = () => {
     }
     getUsers();
   }, []);
-
+  
+  //Building logical functionality to show correctly users ID.
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
   const firstItemIndex = (currentPage - 1) * itemsPerPage;
 
