@@ -5,31 +5,22 @@ import List from './components/List.js';
 import User from './components/User.js';
 import Repos from './components/Repos.js';
 import './index.css';
-import {createBrowserRouter, RouterProvider} from 'react-router-dom';
+import { Routes, Route } from 'react-router-dom';
 
-const router = createBrowserRouter([{
-  path: '/',
-  element: <App />,
-  children: [
-  {
-    path:'/api/users',
-    element: <List />
-  },
-  {
-    path:'/api/users/:username/details',
-    element: <User />
-  },
-  {
-    path: '/api/users/:username/repos',
-    element: <Repos />
-  } 
-]
-}])
+const routing = (
+  <Routes>
+    <Route path="/" element={<App />} >
+      <Route path="api/users" element={<List />} />
+      <Route path="api/users/:username/details" element={<User />} />
+      <Route path="api/users/:username/repos" element={<Repos />} />
+    </Route>
+  </Routes>
+);
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
 root.render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+    {routing}
   </React.StrictMode>
 );
