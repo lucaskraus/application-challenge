@@ -5,7 +5,7 @@ const path = require('path');
 const app = express();
 
 //GitHub Key - Expires May 16.
-const GITHUB_PAT = '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';
+const GITHUB_KEY = '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';
 
 app.use(cors());
 
@@ -18,7 +18,7 @@ app.get('/api/users', async (req, res) => {
     const users = response.data;
     res.send(users);
   } catch (err) {
-	
+
     console.error(err);
     res.status(500).send("Couldn't find the users list.");
   }
@@ -31,7 +31,7 @@ app.get('/api/users/:username/details', async (req, res) => {
   try {
     const response = await axios.get(`https://api.github.com/users/${username}`, {
       headers: {
-        Authorization: `Bearer ${GITHUB_PAT}`,
+        Authorization: `Bearer ${GITHUB_KEY}`,
       },
     });
     const userData = response.data;
@@ -51,7 +51,7 @@ app.get('/api/users/:username/repos', async (req, res) => {
   try{
     const response = await axios.get(`https://api.github.com/users/${username}/repos`, {
       headers: {
-        Authorization: `Bearer ${GITHUB_PAT}`,
+        Authorization: `Bearer ${GITHUB_KEY}`,
       },
     });
     const userData = response.data;
