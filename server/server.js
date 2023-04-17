@@ -5,7 +5,7 @@ const path = require('path');
 const app = express();
 
 //GitHub Key - Expires May 16.
-const GITHUB_KEY = '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';
+const GITHUB_KEY = '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';
 
 app.use(cors());
 
@@ -14,7 +14,11 @@ app.use(express.static(path.join(__dirname, '../client/build')));
 //API query to get users from Github.
 app.get('/api/users', async (req, res) => {
   try {
-    const response = await axios.get('https://api.github.com/users');
+    const response = await axios.get('https://api.github.com/users', {
+      headers: {
+        Authorization: `Bearer ${GITHUB_KEY}`,
+      },
+    }); ;
     const users = response.data;
     res.send(users);
   } catch (err) {
