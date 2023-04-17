@@ -28,6 +28,11 @@ app.get('/api/users', async (req, res) => {
   }
 });
 
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, '../client/build/index.html'));
+});
+
+
 //API query to get details from an specific user.
 app.get('/api/users/:username/details', async (req, res) => {
   const username = req.params.username;
