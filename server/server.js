@@ -18,6 +18,7 @@ app.get('/api/users', async (req, res) => {
     const users = response.data;
     res.send(users);
   } catch (err) {
+	
     console.error(err);
     res.status(500).send("Couldn't find the users list.");
   }
@@ -37,6 +38,7 @@ app.get('/api/users/:username/details', async (req, res) => {
     res.send(userData);
 
   } catch (err){
+
     console.log(err);
     res.status(500).send("Couldn't find the user details.");
   }
@@ -55,6 +57,7 @@ app.get('/api/users/:username/repos', async (req, res) => {
     const userData = response.data;
     res.send(userData);
   } catch (err) {
+
     console.log(err);
     res.status(500).send("Couldn't find the user's repositories.");
   }
